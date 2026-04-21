@@ -28,11 +28,13 @@ async function registerContentScript(jiraBaseUrl) {
   }
 }
 
-// On install or update, register if URL already configured
-chrome.runtime.onInstalled.addListener(async () => {
+// On install or update, register if URL already configured, or open options page
+chrome.runtime.onInstalled.addListener(async (details) => {
   const { jiraBaseUrl } = await chrome.storage.sync.get("jiraBaseUrl");
   if (jiraBaseUrl) {
     await registerContentScript(jiraBaseUrl);
+  } else if (details.reason === "install") {
+    chrome.runtime.openOptionsPage();
   }
 });
 
