@@ -46,6 +46,11 @@ chrome.runtime.onStartup.addListener(async () => {
   }
 });
 
+// Open options page when the toolbar icon is clicked
+chrome.action.onClicked.addListener(() => {
+  chrome.runtime.openOptionsPage();
+});
+
 // Listen for URL updates from the options page
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message.type === "URL_UPDATED") {
