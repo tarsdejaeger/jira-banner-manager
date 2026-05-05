@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Jira Banner Manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Acknowledge and auto-hide Jira announcement banners until their content changes.",
   "permissions": ["storage", "scripting"],
   "optional_host_permissions": ["*://*/*"],
